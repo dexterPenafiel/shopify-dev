@@ -1,3 +1,4 @@
+
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
@@ -17,6 +18,14 @@
 {% if social_icons %}
   {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 {% endif %}
+
+<style>
+  .announcement-bar-section p,
+  .announcement-bar-section a,
+  .announcement-bar-section .list-social__link {
+    color: {{ section.settings.text_color }} !important;
+  }
+</style>
 
 <div
   style="{% if section.settings.background_color %}background-color: {{section.settings.background_color}} {% endif %}" class="utility-bar gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
@@ -170,16 +179,24 @@
   },
   "settings": [
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-4"
+      "type": "header",
+      "content": "Background Color"
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background Color",
+      "label": "Select Color",
       "default": "#4DABBB"
+    },
+    {
+      "type": "header",
+      "content": "Text and Icon Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Select Color",
+      "default": "#ffffff"
     },
     {
       "type": "checkbox",
