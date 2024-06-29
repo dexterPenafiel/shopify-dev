@@ -19,6 +19,11 @@
 {%- endif -%}
 
 <style>
+  {%- if section.settings.background_color != blank -%}
+    .header-wrapper {
+      background-color: {{ section.settings.background_color }} !important;
+    }
+  {%- endif -%}
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
@@ -466,6 +471,16 @@
   "class": "section-header",
   "max_blocks": 3,
   "settings": [
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Select Color",
+      "default": "#4DABBB"
+    },
     {
       "type": "select",
       "id": "logo_position",
