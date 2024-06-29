@@ -24,6 +24,13 @@
       background-color: {{ section.settings.background_color }} !important;
     }
   {%- endif -%}
+
+  {%- if section.settings.font_color != blank -%}
+    .header__menu-item, .header__icon {
+      background-color: {{ section.settings.font_color }} !important;
+    }
+  {%- endif -%}
+
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
@@ -480,6 +487,16 @@
       "id": "background_color",
       "label": "Select Color",
       "default": "#4DABBB"
+    },
+    {
+      "type": "header",
+      "content": "Font and Icon Color"
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Select Color",
+      "default": "#fff"
     },
     {
       "type": "select",
